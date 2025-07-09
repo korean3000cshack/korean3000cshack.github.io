@@ -5,6 +5,7 @@
 */
 
 (function ($) {
+  "use strict";
   var $window = $(window),
     $body = $("body"),
     $wrapper = $("#wrapper"),
@@ -222,4 +223,8 @@
   $(".nav-button").on("click", function () {
     $("#nav-check").prop("checked", false);
   });
+
+  if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+  }
 })(jQuery);

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DJ LIL MIA</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/11.10.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/11.10.0/firebase-auth-compat.js"></script>
+    <script
+      defer
+      src="/__/firebase/11.10.0/firebase-firestore-compat.js"
+    ></script>
+    <script
+      defer
+      src="/__/firebase/11.10.0/firebase-functions-compat.js"
+    ></script>
+
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+    <title>DJ Lil Mia</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+
+    <!-- <style media="screen">
+      body {
+        background: #eceff1;
+        color: rgba(0, 0, 0, 0.87);
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      #message {
+        background: white;
+        max-width: 360px;
+        margin: 100px auto 16px;
+        padding: 32px 24px;
+        border-radius: 3px;
+      }
+      #message h2 {
+        color: #ffa100;
+        font-weight: bold;
+        font-size: 16px;
+        margin: 0 0 8px;
+      }
+      #message h1 {
+        font-size: 22px;
+        font-weight: 300;
+        color: rgba(0, 0, 0, 0.6);
+        margin: 0 0 16px;
+      }
+      #message p {
+        line-height: 140%;
+        margin: 16px 0 24px;
+        font-size: 14px;
+      }
+      #message a {
+        display: block;
+        text-align: center;
+        background: #039be5;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        padding: 16px;
+        border-radius: 4px;
+      }
+      #message,
+      #message a {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      }
+      #load {
+        color: rgba(0, 0, 0, 0.4);
+        text-align: center;
+        font-size: 13px;
+      }
+      @media (max-width: 600px) {
+        body,
+        #message {
+          margin-top: 0;
+          background: white;
+          box-shadow: none;
+        }
+        body {
+          border-top: 16px solid #ffa100;
+        }
+      }
+    </style> -->
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper" class="fade-in">
+      <div class="nav">
+        <input type="checkbox" id="nav-check" />
+        <div class="nav-header"></div>
+        <div class="nav-btn">
+          <label for="nav-check">
+            <span></span>
+            <span></span>
+            <span></span>
+          </label>
+        </div>
+
+        <div class="nav-links">
+          <a class="nav-button" href="#">HOME</a>
+          <a class="nav-button" href="#about">ABOUT</a>
+          <a class="nav-button" href="#service">SERVICE</a>
+          <a class="nav-button" href="#book">BOOK NOW</a>
+        </div>
+      </div>
+
+      <!-- Intro -->
+      <div id="intro">
+        <h1>DJ Lil Mia</h1>
+      </div>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Featured Post -->
+        <article id="about" class="post featured">
+          <div style="display: flex; align-items: center; gap: 2rem">
+            <a class="image main"><img src="images/pic01.jpg" alt="" /></a>
+            <header class="major">
+              <h2>
+                <a>ABOUT US </a>
+              </h2>
+              <h3>
+                DJ Lil Mia brings the perfect soundtrack to weddings, parties,
+                and events of all kinds. Known for reading the crowd and keeping
+                the energy high, every set is custom-tailored to your vibe.
+              </h3>
+            </header>
+          </div>
+        </article>
+
+        <!-- Posts -->
+        <header id="service" class="major">
+          <h1>
+            <a>OUR SERVICE </a>
+          </h1>
+        </header>
+        <section class="posts">
+          <article>
+            <a class="image fit"><img src="images/pic02.jpg" alt="" /></a>
+            <header>
+              <h2>
+                <a>Weddings</a>
+              </h2>
+            </header>
+          </article>
+          <article>
+            <a class="image fit"><img src="images/pic04.jpg" alt="" /></a>
+            <header>
+              <h2>
+                <a>PARTIES</a>
+              </h2>
+            </header>
+          </article>
+          <article>
+            <a class="image fit"><img src="images/pic03.jpg" alt="" /></a>
+            <header>
+              <h2>
+                <a>EVENTS</a>
+              </h2>
+            </header>
+          </article>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section id="book">
+          <div>
+            <h1>BOOK uS!</h1>
+            <p>We look forward to work with you!</p>
+          </div>
+          <form method="post" action="#" id="infoForm">
+            <div class="fields">
+              <div class="field" style="display: flex; gap: 1rem">
+                <div style="flex: 1">
+                  <label for="name">First Name</label>
+                  <input required type="text" name="name" id="firstName" />
+                </div>
+                <div style="flex: 1">
+                  <label for="name">Last Name</label>
+                  <input required type="text" name="name" id="lastName" />
+                </div>
+              </div>
+              <!-- <div class="field" style="display: flex; gap: 1rem">
+                <div>
+                  <label for="name">Date</label>
+                  <input type="text" name="name" id="date" />
+                </div>
+                <div>
+                  <label for="name">time</label>
+                  <input type="text" name="name" id="time" />
+                </div>
+              </div> -->
+              <div class="field">
+                <label for="email">Email</label>
+                <input required type="text" name="email" id="email" />
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea name="message" id="message" rows="3"></textarea>
+              </div>
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Send Message" /></li>
+            </ul>
+          </form>
+        </section>
+        <section class="contact split">
+          <div style="display: flex; gap: 2rem">
+            <section class="alt">
+              <h3>Based in</h3>
+              <p>Toronto, ON, Canada</p>
+            </section>
+            <section>
+              <h3>Phone</h3>
+              <p><a href="#">(437) 595-1171</a></p>
+            </section>
+            <section>
+              <h3>Email</h3>
+              <p><a href="#">lilmia.dj@gmail.com</a></p>
+            </section>
+            <section>
+              <h3>Social</h3>
+              <ul class="icons alt">
+                <li>
+                  <a href="#" class="icon brands alt fa-twitter"
+                    ><span class="label">Twitter</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="icon brands alt fa-facebook-f"
+                    ><span class="label">Facebook</span></a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="icon brands alt fa-instagram"
+                    ><span class="label">Instagram</span></a
+                  >
+                </li>
+              </ul>
+            </section>
+          </div>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="module" src="assets/js/test.js"></script>
+  </body>
+</html>
