@@ -140,26 +140,16 @@
             <h1>BOOK uS!</h1>
             <p>We look forward to work with you!</p>
           </div>
-          <form method="post" action="#">
+          <form id="contact-form" method="post" action="#">
             <div class="fields">
               <div class="field" style="display: flex; gap: 1rem">
                 <div>
                   <label for="name">First Name</label>
-                  <input type="text" name="name" id="first-name" />
+                  <input type="text" name="fname" id="fname" />
                 </div>
                 <div>
                   <label for="name">Last Name</label>
-                  <input type="text" name="name" id="last-name" />
-                </div>
-              </div>
-              <div class="field" style="display: flex; gap: 1rem">
-                <div>
-                  <label for="name">First Name</label>
-                  <input type="text" name="name" id="first-name" />
-                </div>
-                <div>
-                  <label for="name">Last Name</label>
-                  <input type="text" name="name" id="last-name" />
+                  <input type="text" name="lname" id="lname" />
                 </div>
               </div>
               <div class="field">
@@ -220,6 +210,42 @@
         </ul>
       </div>
     </div>
+
+    <script>
+      const form = document.getElementById("contact-form");
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault(); // Prevent the page from reloading
+
+        // Collect form data
+        const data = {
+          name: form.fname.value,
+          email: form.email.value,
+          message: form.message.value,
+        };
+
+        try {
+          const response = await fetch("/api/email", {
+            // Replace with your function URL if deployed elsewhere
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+
+          if (response.ok) {
+            alert("Message sent successfully!");
+            form.reset(); // Clear form fields
+          } else {
+            alert("Failed to send message. Please try again.");
+          }
+        } catch (error) {
+          alert(
+            "Error sending message. Please check your internet connection."
+          );
+          console.error(error);
+        }
+      });
+    </script>
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>

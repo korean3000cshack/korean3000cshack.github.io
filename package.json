@@ -1,0 +1,25 @@
+{
+  "name": "korean3000cshack.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/korean3000cshack/korean3000cshack.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/korean3000cshack/korean3000cshack.github.io/issues"
+  },
+  "homepage": "https://github.com/korean3000cshack/korean3000cshack.github.io#readme",
+  "dependencies": {
+    "nodemailer": "^7.0.5"
+  },
+  "type": "module"
+}
