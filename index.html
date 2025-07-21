@@ -7,6 +7,7 @@
 <html>
   <head>
     <title>DJ Lil Mia</title>
+    <link rel="icon" href="/images/fav.png" type="image/x-icon" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -31,35 +32,47 @@
     <!-- Wrapper -->
     <div id="wrapper" class="fade-in">
       <div class="nav">
-        <a href="#" class="logo-btn">
-          <img src="images/logo.png" alt="DJ Lil Mia Logo" class="nav-logo" />
+        <a class="logo-btn" href="#intro-div" onclick="smoothScroll(event)">
+          <img
+            href="#intro-div"
+            src="images/logo.png"
+            alt="DJ Lil Mia Logo"
+            class="nav-logo"
+          />
         </a>
-        <input type="checkbox" id="nav-check" />
-        <div class="nav-header"></div>
-        <div class="nav-btn">
-          <label for="nav-check">
-            <span></span>
-            <span></span>
-            <span></span>
-          </label>
-        </div>
 
         <div class="nav-links">
-          <a class="nav-button" href="#">HOME</a>
-          <a class="nav-button" href="#about">ABOUT</a>
-          <a class="nav-button" href="#service">SERVICES</a>
-          <a class="nav-button" id="bookNow" href="#book">BOOK NOW</a>
+          <a class="nav-button" href="#intro-div" onclick="smoothScroll(event)"
+            >HOME</a
+          >
+          <a class="nav-button" href="#about-div" onclick="smoothScroll(event)"
+            >ABOUT</a
+          >
+          <a
+            class="nav-button"
+            href="#service-div"
+            onclick="smoothScroll(event)"
+            >SERVICES</a
+          >
+          <a
+            class="nav-button"
+            id="bookNow"
+            href="#book-div"
+            onclick="smoothScroll(event)"
+            >BOOK NOW</a
+          >
         </div>
       </div>
 
       <!-- Intro -->
+      <div id="intro-div"></div>
       <div id="intro">
-        <!-- <p>DJ Lil Mia</p> -->
         <span>DJ Lil Mia</span>
         <div class="dark-overlay"></div>
       </div>
 
       <!-- Main -->
+      <div id="about-div"></div>
       <div id="main">
         <!-- Featured Post -->
         <article id="about" class="post">
@@ -79,6 +92,7 @@
         </article>
 
         <!-- Posts -->
+        <div id="service-div"></div>
         <header id="service" class="major">
           <h2>OUR SERVICES</h2>
         </header>
@@ -93,7 +107,7 @@
           </article>
           <article>
             <a class="image fit"
-              ><img id="parties" src="images/pic04.JPG" alt=""
+              ><img id="parties" src="images/pic04.jpg" alt=""
             /></a>
             <header>
               <h2>PARTIES</h2>
@@ -109,11 +123,12 @@
           </article>
         </section>
         <h3 style="padding-top: 0">AND MORE!</h3>
+        <div id="book-div"></div>
       </div>
 
       <!-- Footer -->
       <div id="book">
-        <div class="half">
+        <div id="book-half" class="half">
           <h1>BOOK uS!</h1>
           <h6>We look forward to work with you!</h6>
         </div>
@@ -131,8 +146,8 @@
                 </div>
               </div>
 
-              <div class="date-time-field">
-                <div id="date-half" class="half">
+              <div class="field" style="display: flex; gap: 1rem">
+                <div id="date-half" class="field half">
                   <div
                     class="picker-button"
                     id="default-today"
@@ -148,14 +163,14 @@
                     </div>
                   </div>
                 </div>
-                <div class="half">
+                <div class="field half">
                   <div
                     class="picker-button"
                     id="date-time-time"
                     data-picker-type="time"
-                    data-time-interval="15"
+                    data-time-interval="30"
                     data-start-time="00:00"
-                    data-end-time="23:45"
+                    data-end-time="23:30"
                     data-allow-past-times="false"
                     data-linked-to="date-time"
                     data-start-time="now"
@@ -173,7 +188,7 @@
               <div class="field">
                 <label for="phone">Phone</label>
                 <input
-                  type="number"
+                  type="text"
                   id="phone"
                   placeholder="123-456-7890"
                   name="phone"
@@ -197,37 +212,44 @@
                   placeholder="123 Main St, City, Province"
                 />
               </div>
-              <div class="field">
-                <label for="num-people"
-                  >Estimate # of attendees at the event</label
-                >
-                <input
-                  type="number"
-                  name="num-people"
-                  id="num-people"
-                  pattern="^[1-9][0-9]*"
-                />
+              <div class="field" style="display: flex; gap: 1rem">
+                <div class="field half">
+                  <label for="num-people"
+                    >Estimate # of attendees at the event</label
+                  >
+                  <input
+                    type="text"
+                    name="num-people"
+                    id="num-people"
+                    pattern="^[1-9][0-9]*"
+                  />
+                </div>
+                <div class="field half">
+                  <label>Do you need audio equipment?</label>
+                  <label class="radio-wrapper">
+                    <input
+                      id="audio-yes"
+                      type="radio"
+                      name="audio"
+                      value="yes"
+                    />
+                    <span class="custom-radio"></span>
+                    Yes
+                  </label>
+                  <br />
+                  <label class="radio-wrapper">
+                    <input id="audio-no" type="radio" name="audio" value="no" />
+                    <span class="custom-radio"></span>
+                    No
+                  </label>
+                </div>
               </div>
 
-              <div class="field">
-                <label>Do you need audio equipment?</label>
-                <label class="radio-wrapper">
-                  <input id="audio-yes" type="radio" name="audio" value="yes" />
-                  <span class="custom-radio"></span>
-                  Yes
-                </label>
-                <br />
-                <label class="radio-wrapper">
-                  <input id="audio-no" type="radio" name="audio" value="no" />
-                  <span class="custom-radio"></span>
-                  No
-                </label>
-              </div>
               <div class="field">
                 <label for="message"
                   >Specific requirements or pereferences</label
                 >
-                <textarea name="message" id="message" rows="3"></textarea>
+                <textarea name="message" id="message" rows="1"></textarea>
               </div>
             </div>
             <input type="submit" value="Submit" />
@@ -282,7 +304,7 @@
             <div class="footer-column">
               <h5>Follow us!</h5>
               <div class="social-icons">
-                <a href="#">
+                <a href="https://www.instagram.com/djlilmia">
                   <img
                     class="social-icon"
                     src="images/instagram.svg"
@@ -302,148 +324,9 @@
       </footer>
     </div>
 
-    <script>
-      const form = document.getElementById("contact-form");
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent the page from reloading
-
-        // Collect form data
-        const data = {
-          name: form.fname.value,
-          email: form.email.value,
-          message: form.message.value,
-          lname: form.lname.value,
-          date: document.querySelector("#default-today .picker-value")
-            .textContent,
-          time: document.querySelector("#date-time-time .picker-value")
-            .textContent,
-          phone: form.phone.value,
-          address: form.address.value,
-          numPeople: form["num-people"].value,
-          audio: form.audio.value,
-        };
-
-        let valid = true;
-
-        // Helper to set border color
-        function setInvalid(input) {
-          console.log("Invalid input:", input);
-          input.style.border = "1px solid red";
-          valid = false;
-        }
-        function setValid(input) {
-          input.style.border = "1px solid black";
-        }
-
-        // First Name
-        if (!data.name.trim()) setInvalid(form.fname);
-        else setValid(form.fname);
-
-        // Last Name
-        if (!data.lname.trim()) setInvalid(form.lname);
-        else setValid(form.lname);
-
-        // Email
-        const emailPattern =
-          /^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$/;
-        if (!emailPattern.test(data.email.trim())) setInvalid(form.email);
-        else setValid(form.email);
-
-        // Phone
-        const phonePattern = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/;
-        const phonePattern2 = /^[0-9]{10}$/; // Allow 10 digits without dashes
-        if (
-          !phonePattern.test(data.phone.trim()) &&
-          !phonePattern2.test(data.phone.trim())
-        )
-          setInvalid(form.phone);
-        else setValid(form.phone);
-
-        // Date
-        const datePicker = document.querySelector(
-          "#default-today .picker-value"
-        );
-        if (datePicker.textContent === "Select Date")
-          setInvalid(document.querySelector("#default-today .date-box"));
-        else setValid(document.querySelector("#default-today .date-box"));
-
-        // Time
-        const timePicker = document.querySelector(
-          "#date-time-time .picker-value"
-        );
-
-        if (timePicker.textContent === "Select Time")
-          setInvalid(document.querySelector("#date-time-time .date-box"));
-        else setValid(document.querySelector("#date-time-time .date-box"));
-
-        // Address
-        if (!data.address.trim()) setInvalid(form.address);
-        else setValid(form.address);
-
-        // Number of People
-        const numPeople = parseInt(data.numPeople, 10);
-        if (isNaN(numPeople) || numPeople <= 0) setInvalid(form["num-people"]);
-        else setValid(form["num-people"]);
-
-        const audio = document.getElementsByClassName("custom-radio");
-        // Audio Equipment
-        if (!data.audio) {
-          for (const wrapper of audio) {
-            setInvalid(wrapper);
-          }
-        } else {
-          for (const wrapper of audio) {
-            setValid(wrapper);
-          }
-        }
-
-        // If any validation failed, stop here
-        if (!valid) {
-          document.getElementById("error-msg").textContent =
-            "Please fill out all required fields correctly.";
-          return;
-        } else {
-          document.getElementById("error-msg").textContent = "";
-        }
-
-        alert(
-          `First Name: ${data.name}
-        Last Name: ${data.lname}
-        Email: ${data.email}
-        Phone: ${data.phone}
-        Date: ${data.date}
-        Time: ${data.time}
-        Address: ${data.address}
-        Number of People: ${data.numPeople}
-        Audio Equipment: ${data.audio}
-        Message: ${data.message}`
-        );
-
-        // try {
-        //   const response = await fetch("/api/email", {
-        //     // Replace with your function URL if deployed elsewhere
-        //     method: "POST",
-        //     headers: { "Content-Type": "application/json" },
-        //     body: JSON.stringify(data),
-        //   });
-
-        //   if (response.ok) {
-        //     alert("Message sent successfully!");
-        //     form.reset(); // Clear form fields
-        //   } else {
-        //     alert("Failed to send message. Please try again.");
-        //   }
-        // } catch (error) {
-        //   alert(
-        //     "Error sending message. Please check your internet connection."
-        //   );
-        //   console.error(error);
-        // }
-      });
-    </script>
-
     <!-- Scripts -->
+    <script src="assets/js/scroll-animation.js" defer></script>
+    <script src="assets/js/contact-form.js" defer></script>
     <script src="assets/js/date-picker.js" defer></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
