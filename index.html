@@ -9,10 +9,7 @@
     <title>DJ Lil Mia</title>
     <link rel="icon" href="/images/fav.png" type="image/x-icon" />
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, user-scalable=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <link rel="stylesheet" href="assets/css/date-picker.css" />
     <link
@@ -22,6 +19,10 @@
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=keyboard_control_key"
     />
 
     <noscript
@@ -171,7 +172,6 @@
                     data-time-interval="30"
                     data-start-time="00:00"
                     data-end-time="23:30"
-                    data-allow-past-times="false"
                     data-linked-to="date-time"
                     data-start-time="now"
                   >
@@ -204,7 +204,7 @@
                 />
               </div>
               <div class="field">
-                <label for="event-address">Event Address</label>
+                <label for="address">Event Address</label>
                 <input
                   type="text"
                   name="address"
@@ -255,6 +255,7 @@
             <input type="submit" value="Submit" />
             <div class="form-footer">
               <p id="error-msg" class="error-msg"></p>
+              <p id="success-msg" class="success-msg"></p>
             </div>
           </form>
           <div>
@@ -264,6 +265,73 @@
             </p>
           </div>
         </div>
+      </div>
+
+      <div id="picker-backdrop" class="picker-backdrop"></div>
+      <div id="date-picker" class="date-picker">
+        <div class="date-picker-header">
+          <div class="days-of-week">
+            <span>M</span><span>T</span><span>W</span> <span>T</span
+            ><span>F</span><span>S</span><span>S</span>
+          </div>
+        </div>
+        <div id="date-picker-months" class="date-picker-months"></div>
+      </div>
+      <div id="time-picker" class="time-picker"></div>
+
+      <button
+        id="scrollTopBtn"
+        class="fade-element"
+        href="#intro-div"
+        onclick="smoothScroll(event)"
+      >
+        <span href="#intro-div" class="up-arrow-icon material-icons">
+          keyboard_control_key
+        </span>
+      </button>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <!-- Logo -->
+          <div class="footer-logo">
+            <img id="footer-logo" src="images/logo.png" alt="Lil M Logo" />
+          </div>
+
+          <!-- Info Columns -->
+          <div class="footer-columns">
+            <div class="footer-column">
+              <h5>Based in</h5>
+              <p>Toronto, ON,<br />Canada</p>
+            </div>
+
+            <div class="footer-column">
+              <h5>Contact us!</h5>
+              <p>
+                (437) 595-1171<br /><a href="mailto:lilmia.dj@gmail.com"
+                  >lilmia.dj@gmail.com</a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-facebook-f"
+                  ><span class="label">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-instagram"
+                  ><span class="label">Instagram</span></a
+                >
+              </li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Untitled</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
       </div>
 
       <div id="picker-backdrop" class="picker-backdrop"></div>

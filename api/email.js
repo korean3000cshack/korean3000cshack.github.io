@@ -22,9 +22,16 @@ export default async function handler(req, res) {
     to: process.env.GMAIL_USER,
     subject: "New Contact Form Message",
     html: `
-      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>First Name:</strong> ${name}</p>
+      <p><strong>Last Name:</strong> ${req.body.lname}</p>
+      <p><strong>Phone:</strong> ${req.body.phone}</p>
       <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Message:</strong><br>${message}</p>
+      <p><strong>Address:</strong> ${req.body.address}</p>
+      <p><strong>Date:</strong> ${req.body.date}</p>
+      <p><strong>Time:</strong> ${req.body.time}</p>
+      <p><strong>Number of People:</strong> ${req.body.numPeople}</p>
+      <p><strong>Audio Equipment:</strong> ${req.body.audio ? "Yes" : "No"}</p>
+      <p><strong>Special Requests:</strong> ${message || "None"}</p>
     `,
   };
 

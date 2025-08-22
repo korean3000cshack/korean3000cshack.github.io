@@ -95,37 +95,28 @@ form.addEventListener("submit", async (event) => {
     document.getElementById("error-msg").textContent = "";
   }
 
-  alert(
-    `First Name: ${data.name}
-        Last Name: ${data.lname}
-        Email: ${data.email}
-        Phone: ${data.phone}
-        Date: ${data.date}
-        Time: ${data.time}
-        Address: ${data.address}
-        Number of People: ${data.numPeople}
-        Audio Equipment: ${data.audio}
-        Message: ${data.message}`
-  );
+  try {
+    const response = await fetch("/api/email", {
+      // Replace with your function URL if deployed elsewhere
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
 
-  // try {
-  //   const response = await fetch("/api/email", {
-  //     // Replace with your function URL if deployed elsewhere
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(data),
-  //   });
-
-  //   if (response.ok) {
-  //     alert("Message sent successfully!");
-  //     form.reset(); // Clear form fields
-  //   } else {
-  //     alert("Failed to send message. Please try again.");
-  //   }
-  // } catch (error) {
-  //   alert(
-  //     "Error sending message. Please check your internet connection."
-  //   );
-  //   console.error(error);
-  // }
+    if (response.ok) {
+      document.getElementById("success-msg").textContent =
+        "Message sent successfully!";
+      document.getElementById("error-msg").textContent = "";
+      form.reset(); // Clear form fields
+    } else {
+      document.getElementById("error-msg").textContent =
+        "Failed to send message. Please try again.";
+      document.getElementById("success-msg").textContent = "";
+    }
+  } catch (error) {
+    document.getElementById("error-msg").textContent =
+      "Error sending message. Please check your internet connection.";
+    document.getElementById("success-msg").textContent = "";
+    console.error(error);
+  }
 });

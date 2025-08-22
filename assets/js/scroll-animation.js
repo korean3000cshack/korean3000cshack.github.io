@@ -1,36 +1,69 @@
 function smoothScroll(event) {
   event.preventDefault(); // prevent the default jump behavior
-  console.log(event.target);
   const targetId = event.target.getAttribute("href").substring(1);
   const target = document.getElementById(targetId);
 
   if (!target) return;
 
   let modifier = 0;
-  if (targetId === "about-div") {
-    modifier = 40;
-  } else if (targetId === "service-div") {
-    modifier = 60;
-  } else if (targetId === "book-div") {
-    modifier = 90;
+
+  if (window.innerWidth < 480) {
+    if (targetId === "about-div") {
+      modifier = 65;
+    } else if (targetId === "service-div") {
+      modifier = 60;
+    } else if (targetId === "book-div") {
+      modifier = 140;
+    }
+  } else if (window.innerWidth < 768) {
+    if (targetId === "about-div") {
+      modifier = 30;
+    } else if (targetId === "service-div") {
+      modifier = 30;
+    } else if (targetId === "book-div") {
+      modifier = 60;
+    }
+  } else if (window.innerWidth < 980) {
+    if (targetId === "about-div") {
+      modifier = 0;
+    } else if (targetId === "service-div") {
+      modifier = 60;
+    } else if (targetId === "book-div") {
+      modifier = 120;
+    }
+  } else if (window.innerWidth < 1280) {
+    if (targetId === "about-div") {
+      modifier = -50;
+    } else if (targetId === "book-div") {
+      modifier = -50;
+    } else if (targetId === "service-div") {
+      modifier = -40;
+    }
+  } else if (window.innerWidth < 1600) {
+    if (targetId === "about-div") {
+      modifier = -150;
+    } else if (targetId === "book-div") {
+      modifier = 0;
+    } else if (targetId === "service-div") {
+      modifier = -60;
+    }
+  } else if (window.innerWidth < 1920) {
+    if (targetId === "about-div") {
+      modifier = -200;
+    } else if (targetId === "book-div") {
+      modifier = -10;
+    } else if (targetId === "service-div") {
+      modifier = -100;
+    }
+  } else {
+    if (targetId === "about-div") {
+      modifier = -200;
+    } else if (targetId === "book-div") {
+      modifier = -70;
+    } else if (targetId === "service-div") {
+      modifier = -140;
+    }
   }
-  // if (window.innerHeight < 1000) {
-  //   if (targetId === "about-div") {
-  //     modifier = 10;
-  //   } else if (targetId === "book-div") {
-  //     modifier = 70;
-  //   } else if (targetId === "service-div") {
-  //     modifier = 20;
-  //   }
-  // } else {
-  //   if (targetId === "about-div") {
-  //     modifier = -200;
-  //   } else if (targetId === "book-div") {
-  //     modifier = -70;
-  //   } else if (targetId === "service-div") {
-  //     modifier = -140;
-  //   }
-  // }
 
   const targetPosition =
     target.getBoundingClientRect().top + window.scrollY + modifier;
@@ -57,3 +90,22 @@ function smoothScroll(event) {
 
   requestAnimationFrame(animation);
 }
+
+let scrollTimeout;
+const fadeElement = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (
+    document.body.scrollTop > 100 ||
+    document.documentElement.scrollTop > 100
+  ) {
+    fadeElement.classList.add("visible");
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+      fadeElement.classList.remove("visible");
+    }, 1500);
+  } else {
+    fadeElement.classList.remove("visible");
+  }
+});
